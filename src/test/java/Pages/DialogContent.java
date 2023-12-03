@@ -5,60 +5,61 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 public class DialogContent extends Parent{
 
     public DialogContent(){ PageFactory.initElements(GWD.getDriver(),this); }
 
-    @FindBy(xpath = "//form//input[@type='text']")
-    private WebElement userID;
-
-    @FindBy(xpath = "//form//input[@type='password']")
-    private WebElement password;
-
-    @FindBy(xpath = "//form//input[@type='submit']")
-    private WebElement loginButton;
-
-    @FindBy(xpath = "//form//input[@type='reset']")
-    private WebElement resetButton;
-
-    @FindBy(xpath = "//h2[@class='barone']")
-    private WebElement SuccessText;
-
-    @FindBy(xpath = "//table[@id='regmsg']//p")
-    private WebElement successMessage;
-
-    @FindBy(xpath = "//table[@class='layout']//input[@name='name']")
-    private WebElement nameInput;
-
-    @FindBy(xpath = "//table[@class='layout']//input[@name='rad1']")
-    private WebElement genderBox;
-
-    @FindBy(xpath = "//table[@class='layout']//input[@name='dob']")
-    private WebElement birth;
-
-    @FindBy(xpath = "//table[@class='layout']//textarea[@name='addr']")
-    private WebElement adressInput;
-
-    @FindBy(xpath = "//table[@class='layout']//input[@name='city']")
-    private WebElement cityInput;
-
-    @FindBy(xpath = "//table[@class='layout']//input[@name='state']")
-    private WebElement stateInput;
-
-    @FindBy(xpath = "//table[@class='layout']//input[@name='pinno']")
-    private WebElement pinInput;
-
-    @FindBy(xpath = "//table[@class='layout']//input[@name='telephoneno']")
-    private WebElement phoneInput;
-
-    @FindBy(xpath = "//table[@class='layout']//input[@name='emailid']")
-    private WebElement mailInput;
-
     @FindBy(xpath = "//table[@class='layout']//input[@name='password']")
     private WebElement passwordInput;
 
-//    @FindBy(xpath = "//div[@id='dismiss-button']")
-//    private WebElement closeAddButton;
+    @FindBy(xpath = "//a[@class='login']")
+    private WebElement signInPageButton;
+
+    @FindBy(xpath = "//input[@id='email']")
+    private WebElement emailInput;
+
+    @FindBy(xpath = "//button[@id='SubmitLogin']")
+    private WebElement signInButton;
+
+    @FindBy(xpath = "//input[@id='email_create']")
+    private WebElement createEmailInput;
+
+    @FindBy(xpath = "//button[@id='SubmitCreate']")
+    private WebElement createAccountButton;
+
+    @FindBy(xpath = "//input[@type='radio'][@id='id_gender1']")
+    private WebElement mrBox;
+
+    @FindBy(xpath = "//input[@id='customer_firstname']")
+    private WebElement firstNameInput;
+
+    @FindBy(xpath = "//input[@id='customer_lastname']")
+    private WebElement lastNameInput;
+
+    @FindBy(xpath = "//input[@id='email']")
+    private WebElement emailInputCreateAccount;
+
+    @FindBy(xpath = "//input[@id='passwd']")
+    private WebElement passwordInputCreateAccount;
+
+    @FindBy(xpath = "//select[@id='days']")
+    private WebElement day;
+
+    @FindBy(xpath = "//select[@id='months']")
+    private WebElement month;
+
+    @FindBy(xpath = "//select[@id='years']")
+    private WebElement year;
+
+    @FindBy(xpath = "//button[@id='submitAccount']")
+    private WebElement registerButton;
+
+    @FindBy(xpath = "//div[@id='center_column']//p[@class='alert alert-success']")
+    private WebElement successText;
+
+
+
 
 
 
@@ -68,47 +69,33 @@ public class DialogContent extends Parent{
 
         switch (strElement){
 
-            case "userID":
-                myElement = userID;
+            case "createEmailInput":
+                myElement = createEmailInput;
+                break;
+
+            case "firstNameInput":
+                myElement = firstNameInput;
+                break;
+
+            case "lastNameInput":
+                myElement = lastNameInput;
                 break;//table[@class='layout']//input[@name='name']
 
-            case "password":
-                myElement = password;
+            case "emailInputCreateAccount":
+                myElement = emailInputCreateAccount;
                 break;
 
-            case "nameInput":
-                myElement = nameInput;
-                break;//table[@class='layout']//input[@name='name']
-
-            case "adressInput":
-                myElement = adressInput;
+            case "passwordInputCreateAccount":
+                myElement = passwordInputCreateAccount;
                 break;
 
-            case "cityInput":
-                myElement = cityInput;
-                break;
-
-            case "stateInput":
-                myElement = stateInput;
-                break;
-
-            case "pinInput":
-                myElement = pinInput;
-                break;
-
-            case "phoneInput":
-                myElement = phoneInput;
-                break;
-            case "mailInput":
-                myElement = mailInput;
+            case "emailInput":
+                myElement = emailInput;
                 break;
 
             case "passwordInput":
                 myElement = passwordInput;
                 break;
-
-
-
         }
         sendKeysFunction(myElement, value);
     }
@@ -116,16 +103,24 @@ public class DialogContent extends Parent{
     public void findAndClick(String strElement){
         switch (strElement){
 
-            case "loginButton":
-                myElement = loginButton;
+            case "createAccountButton":
+                myElement = createAccountButton;
                 break;
 
-            case "resetButton":
-                myElement = resetButton;
+            case "mrBox":
+                myElement = mrBox;
                 break;
 
-            case "genderBox":
-                myElement = genderBox;
+            case "registerButton":
+                myElement = registerButton;
+                break;
+
+            case "signInPageButton":
+                myElement = signInPageButton;
+                break;
+
+            case "signInButton":
+                myElement = signInButton;
                 break;
         }
         clickFunction(myElement);
@@ -133,12 +128,8 @@ public class DialogContent extends Parent{
 
     public void findAndContains(String strElement, String value){
         switch (strElement){
-            case "SuccessText":
-            myElement = SuccessText;
-            break;
-
-            case "successMessage":
-            myElement = successMessage;
+            case "successText":
+            myElement = successText;
             break;
         }
         verifyContainsTextFunction(myElement,value);
@@ -146,8 +137,16 @@ public class DialogContent extends Parent{
 
     public void findAndSelect(String strElement, String value){
         switch (strElement){
-            case "birth":
-                myElement = birth;
+            case "day":
+                myElement = day;
+                break;
+
+                case "month":
+                myElement = month;
+                break;
+
+                case "year":
+                myElement = year;
                 break;
         }
         select(myElement,value);
