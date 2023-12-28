@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginSteps {
+public class _01_LoginSteps {
     DialogContent dc = new DialogContent();
     @Given("Navigate to XuClothing")
     public void navigateToXuClothing() {

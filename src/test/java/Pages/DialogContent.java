@@ -10,7 +10,7 @@ public class DialogContent extends Parent{
 
     public DialogContent(){ PageFactory.initElements(GWD.getDriver(),this); }
 
-    @FindBy(xpath = "//table[@class='layout']//input[@name='password']")
+    @FindBy(xpath = "//input[@type='password']")
     private WebElement passwordInput;
 
     @FindBy(xpath = "//a[@class='login']")
@@ -57,6 +57,9 @@ public class DialogContent extends Parent{
 
     @FindBy(xpath = "//div[@id='center_column']//p[@class='alert alert-success']")
     private WebElement successText;
+
+    @FindBy(xpath = "//div[@class='alert alert-danger']//p")
+    private WebElement failedText;
 
 
 
@@ -130,6 +133,9 @@ public class DialogContent extends Parent{
         switch (strElement){
             case "successText":
             myElement = successText;
+            break;
+            case "failedText":
+            myElement = failedText;
             break;
         }
         verifyContainsTextFunction(myElement,value);
